@@ -5,11 +5,11 @@ sniff:
 	docker build --rm -t avielyosef/ubuntu-dns-amplification:sniff -f Dockerfiles/Dockerfile.sniff .
 	docker run --rm -ti --net myLab --name Sniff avielyosef/ubuntu-dns-amplification:sniff
 dns1:
-	docker run --rm -d --net myLab --name DNS1 --cap-add=NET_ADMIN andyshinn/dnsmasq
+	docker run --rm -d --net myLab --name DNS1 --cap-add=NET_ADMIN 4km3/dnsmasq
 dns2:
-	docker run --rm -d --net myLab --name DNS2 --cap-add=NET_ADMIN andyshinn/dnsmasq
+	docker run --rm -d --net myLab --name DNS2 --cap-add=NET_ADMIN 4km3/dnsmasq
 dns3:
-	docker run --rm -d --net myLab --name DNS3 --cap-add=NET_ADMIN andyshinn/dnsmasq
+	docker run --rm -d --net myLab --name DNS3 --cap-add=NET_ADMIN 4km3/dnsmasq
 	
 
 allDNS: dns1 dns2 dns3

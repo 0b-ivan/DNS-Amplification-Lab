@@ -1,6 +1,6 @@
-FROM ubuntu
+FROM debian:bullseye
 
-RUN apt-get update && apt-get install -y python-pip \
+RUN apt-get update && apt-get install -y python3-pip \
     sudo \
     tcpdump \
     apache2 \
@@ -15,4 +15,4 @@ RUN chmod a+x sniffer
 
 EXPOSE 80
 
-ENTRYPOINT ["sudo","python","sniffer"]
+ENTRYPOINT ["sudo","python3","sniffer"]

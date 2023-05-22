@@ -1,6 +1,7 @@
- #!/usr/bin/env python
+# !/usr/bin/env python
 
 from scapy.all import *
+
 
 def dns_sniff(pkt):
     """ parse dns request / response packet """
@@ -8,21 +9,23 @@ def dns_sniff(pkt):
         ip = pkt['IP']
         udp = pkt['UDP']
         dns = pkt['DNS']
-        
+
         # dns response packet
-        if (dns.ancount != 0):
+        if dns.ancount != 0:
             # dns DNSRR count (answer count)
             for i in range(dns.ancount):
                 dnsrr = dns.an[i]
-                print "DNS Response: %s:%s <- %s:%d : %s - %s" % (
+                response = "DNS Response: %s:%s <- %s:%d : %s - %s" % (
                     ip.dst, udp.dport,
                     ip.src, udp.sport,
                     dnsrr.rrname, dnsrr.rdata)
+                print(response)
         # dns request packet
         else:
             qname = dns.qd.qname
-            print "\nDNS Request: %s:%d -> %s:%d : %s" % (
-            ip.src, udp.sport, ip.dst, udp.dport, qname)
+            request = "\nDNS Request: %s:%d -> %s:%d : %s" % (
+                ip.src, udp.sport, ip.dst, udp.dport, qname)
+            print(request)
 
 
 def main():
