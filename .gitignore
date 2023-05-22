@@ -106,3 +106,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+/.idea/dbnavigator.xml
+/.idea/.gitignore
+/.idea/DNS-Amplification-Lab.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
