@@ -23,6 +23,7 @@ def dns_sniff(pkt):
         # dns request packet
         else:
             qname = dns.qd.qname
+            print(qname)
             request = "\nDNS Request: %s:%d -> %s:%d : %s" % (
                 ip.src, udp.sport, ip.dst, udp.dport, qname)
             print(request)
