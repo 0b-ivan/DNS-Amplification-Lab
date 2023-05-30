@@ -1,0 +1,5 @@
+google.de
+thws.de
+quercom.myds.me
+test.de
+db.de
